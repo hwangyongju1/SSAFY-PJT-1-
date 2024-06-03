@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.myssafit.model.dao.fcm.FcmDao">
+
+	<select id="selectDevelopList2" parameterType="String" resultType="FcmDto">
+		select * from fcmUser
+		where fcmjob = #{fcmjob} and fcmtime2 = true
+	</select>
+	
+	<select id="selectDevelopList4" parameterType="String" resultType="FcmDto">
+		select * from fcmUser
+		where fcmjob = #{fcmjob} and fcmtime4 = true
+	</select>
+	
+	<select id="selectStudentList2" parameterType="String" resultType="FcmDto">
+		select * from fcmUser
+		where fcmjob = #{fcmjob} and fcmtime2 = true
+	</select>
+	
+	<select id="selectStudentList4" parameterType="String" resultType="FcmDto">
+		select * from fcmUser
+		where fcmjob = #{fcmjob} and fcmtime4 = true
+	</select>
+	
+	<insert id="insertToken" parameterType="FcmDto">
+		insert into fcmUser(fcmtoken, fcmjob, fcmtime2, fcmtime4, tokenExpirationTime, fcmUserId)
+		values(#{fcmtoken}, #{fcmjob}, #{fcmtime2}, #{fcmtime4}, #{tokenExpirationTime}, #{fcmUserId})
+	</insert>
+	
+	<select id="selectByFcmUserId" parameterType="String" resultType="FcmDto">
+		select * from fcmUser
+		where fcmUserId = #{fcmUserId}
+	</select>
+	
+	<update id="updateToken" parameterType="FcmDto">
+		update fcmUser
+		set fcmtoken = #{fcmtoken}, tokenExpirationTime=#{tokenExpirationTime}
+		where fcmUserId = #{fcmUserId}
+	</update>
+	
+	<select id="selectList" resultType="FcmDto">
+		select * from fcmUser
+	</select>
+	
+	<update id="deletFcmToken">
+		update fcmUser
+		set fcmtoken = null, tokenExpirationTime=null
+		where fcmUserId = #{fcmUserId}
+	</update>
+	
+	<update id="updateSubscribe" parameterType="FcmDto">
+		update fcmUser
+		set fcmtime2 = #{fcmtime2}, fcmtime4=#{fcmtime4}
+		where fcmUserId = #{fcmUserId}
+	</update>
+	
+	<delete id="deleteSubscribe" parameterType="String">
+		delete from fcmUser
+		where fcmUserId = #{fcmUserId}
+	</delete>
+</mapper>

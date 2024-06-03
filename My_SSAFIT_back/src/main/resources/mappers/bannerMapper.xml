@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ssafy.myssafit.model.dao.Banner.BannerDao">
+  	<select id="selectAll">
+  		SELECT * FROM banners;
+  	</select>
+  	
+  	<select id="selectBanner" parameterType="String" resultType="Banner">
+  		SELECT * FROM banners
+  		WHERE bannerIdx = #{bannerIdx};
+  	</select>
+  	
+  	<select id="getActiveBanner">
+  		SELECT * FROM banners
+  		WHERE bannerSwitch = true;
+  	</select>
+  	
+  	<insert id="insertBanner" parameterType="Banner">
+  		INSERT INTO banners (bannerName, bannerImgFile)
+  		VALUES (#{bannerName}, #{bannerImgFile});
+  	</insert>
+  	
+  	<update id="updateBanner" parameterType="Banner">
+  		UPDATE banners SET bannerSwitch = #{bannerSwitch}
+  		WHERE bannerIdx = #{bannerIdx};
+  	</update>
+  	
+  	<update id="updateBannerSwitch">
+  		UPDATE banners SET bannerSwitch = false;
+  	</update>
+  	
+  	
+  	<delete id="deleteBanner" parameterType="String">
+  		delete from banners 
+  		where bannerIdx = #{bannerIdx};
+  	</delete>
+  	
+  	
+  </mapper>

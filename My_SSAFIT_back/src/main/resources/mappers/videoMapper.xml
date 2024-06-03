@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ssafy.myssafit.model.dao.video.VideoDao">
+  	<select id = "selectAll">
+  		SELECT * FROM videos;
+  	</select>
+  	
+  	<select id="selectVideoById" parameterType="String" resultType="Video">
+  		SELECT * FROM videos
+  		WHERE videoId = #{videoId};
+  	</select>
+  	
+  	<select id="selectCategoryAll">
+  		SELECT * FROM exerciseCategory;
+  	</select>
+  	
+  	<select id="selectCategoryDistinct">
+  		SELECT Distinct category FROM exerciseCategory;
+  	</select>
+  	
+  	<select id="selectVideoListByCategory" parameterType="String" resultType="Video">
+  		SELECT * FROM videos
+  		WHERE videoCategory = #{category} 
+  		ORDER BY videoViewCnt DESC;
+  	</select>
+  	
+  	
+  	
+  	<insert id="insertVideoCategory" parameterType="VideoCategory">
+  		INSERT INTO exerciseCategory (keyword, category)
+  		VALUES (#{keyword}, #{category});
+  	</insert>
+  	
+  	<insert id="insertVideo" parameterType="Video">
+  		<if test="videoCategory == null">
+		INSERT INTO videos(videoId, videoTitle, videoImgUrl, videoViewCnt)
+  		VALUES (#{videoId}, #{videoTitle}, #{videoImgUrl}, #{videoViewCnt});
+  		</if>
+  		<if test="videoCategory != null">
+  		INSERT INTO videos(videoId, videoTitle, videoImgUrl, videoCategory, videoViewCnt)
+  		VALUES (#{videoId}, #{videoTitle}, #{videoImgUrl}, #{videoCategory}, #{videoViewCnt});
+  		</if>
+  	</insert>
+  	
+  	
+  	
+  	<update id="updateVideoById" parameterType="Video">
+  		UPDATE videos
+  		SET videoTitle = #{videoTitle}, videoCategory = #{videoCategory}
+  		WHERE videoId = #{videoId};
+  	</update>
+  	
+  	<delete id="deleteVideoById" parameterType="String">
+  		DELETE FROM videos
+  		WHERE videoId = #{videoId};
+  	</delete>
+  	
+  	<delete id="deleteVideoCategoryByKey" parameterType="String">
+  		DELETE FROM exerciseCategory
+  		WHERE keyword = #{keyword};
+  	</delete>
+  </mapper>

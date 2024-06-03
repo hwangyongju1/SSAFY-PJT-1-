@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "GmarketSansMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: "GmarketSansMedium";
+}
+.main {
+    text-align: center;
+    margin: 130px auto 0;
+}
+.main a {
+    font-family: "EF_watermelonSalad";
+    font-size: 40px;
+}
+.login {
+    width: 410px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.login h2 {
+    padding: 0 0 20px;
+    border-bottom: 2px solid #262614;
+    text-align: left;
+    line-height: 1;
+    font-size: 26px;
+    color: #262614;
+}
+.login .first {
+    padding: 40px 0 33px;
+}
+.login .first li {
+    padding: 0 0 12px;
+    text-align: left;
+}
+.login .first li input {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    text-indent: 16px;
+}
+.login .first li input::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #9fa19f;
+}
+.login button {
+    margin-top: 15px;
+    width: 100%;
+    height: 56px;
+    background: #5ab2ff;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+.login button:hover {
+    background: #3f88c5;
+}
+.sub {
+    padding: 0 0 25px;
+}
+.sub .second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub .second li a {
+    font-size: 16px;
+    color: #262614;
+}

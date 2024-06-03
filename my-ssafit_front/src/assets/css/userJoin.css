@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "GmarketSansMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: "GmarketSansMedium";
+}
+.main {
+    text-align: center;
+}
+.main a {
+    font-family: "EF_watermelonSalad";
+    font-size: 40px;
+}
+
+.join {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    margin-top: 5%;
+}
+.join h2 {
+    padding: 0 0 20px;
+    border-bottom: 2px solid #262614;
+    text-align: left;
+    line-height: 1;
+    font-size: 26px;
+    color: #262614;
+}
+.id-box {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 2fr 1fr;
+}
+.id-box #midBtn {
+    background: #5ab2ff;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+}
+.id-box #midBtn:hover {
+    background: #3f88c5;
+}
+
+.tel-box {
+    display: flex;
+    justify-content: space-between;
+}
+.join .first li {
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+.join .first {
+    padding: 50px 0 33px;
+}
+.join .first li {
+    padding: 0 0 15px;
+    text-align: left;
+}
+.join .first li input {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    text-indent: 16px;
+}
+#userId,
+#userNickName {
+    width: 300px;
+}
+#nickBtn,
+#midBtn {
+    text-align: center;
+}
+.join .first li input::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #9fa19f;
+}
+.input button {
+    width: 100%;
+    padding: 15px 0;
+    background: #5ab2ff;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+}
+.input button:hover {
+    background: #3f88c5;
+}
+.join .input {
+    margin-top: 20px;
+}
